@@ -1,0 +1,162 @@
+PONTIFÍCIA UNIVERSIDADE CATÓLICA DE MINAS GERAIS
+Instituto de Ciências Exatas e de Informática
+Arquitetura I - Atividade Pratica
+Marcos Antonio Lommez Candido Ribeiro - 771157
+
+
+Resumo
+Diante da necessidade de evolução do mundo e da computação, novas tecnologias e dispositivos 
+são frequentemente criados. Com a crescente demanda por tecnologias não apenas
+melhores, mas também mais baratas e eficientes, existem no mercado inúmeras opções.
+Este artigo tem a intenção de trazer uma breve explicação sobre alguns tipos de tecnologias
+existentes e o que as diferem. As tecnologias abordadas serão um PDL (Programmable
+Logic Device), um circuito integrado que pode conter uma grande quantidade de recursos
+programáveis pelo usuário. Assim como descrito na atividade as descrições serão baseadas
+em artigos que descrevem os tipos de circuitos pedidos
+
+
+
+1 DEFINIÇÃO E CARACTERIZAÇÃO
+
+1.1 ASIC
+Um Circuito Integrado de Aplicação Específica ou ASIC (Application-specific integrated circuit) 
+é um dispositivo criado visando um proposito específico, às vezes são denominados sistema em um 
+chip  (System-on-a-chip). Em geral, qualquer chip customizado é um ASIC independente de ser analógico, 
+digital ou uma mistura, mas predominantemente costumam ser digitais. São normalmente caros e 
+possuem um tempo de desenvolvimento longo além de demandarem muitos recursos, pois requerem uma 
+máscara especifica para cada projeto, mas em casos de grande produção estes custos são amenizados. 
+Em contrapartida, oferecem um ótimo desempenho e baixo consumo de energia.
+
+
+1.2 ASSP
+Além do ASIC existe o Circuito Integrado de Aplicação Específica com padrão ASSP’s
+(Application-specific standard parts), essencialmente ASIC e ASSP são a mesma coisa, desde
+a sua projeção até a sua implementação. O que os diferencia e o fato de um chip ASSP possuir
+um proposito mais geral, feito para ser usado por diferentes sistemas. Um exemplo clássico que
+representa um chip ASSP e’ um USB.
+
+1.3 SPLD
+Os SPLD’s (Simple Programmable Logic Devices) são dispositivos simples programáveis e possuem dois 
+tipos, os PAL (Programmable Array Logic), sendo geralmente programáveis apenas uma vez, e os GAL 
+(Generic Array Logic), que podem ser reprogramáveis. Em ambos PAL e GAL existem diversas portas 
+AND’s programáveis ligadas a portas OR fixas, formando assim um SoP (Sum of products). Para programar 
+um PAL os fusíveis das portas AND’s são queimados para eliminar as ligações, enquanto num GAL 
+utiliza-se uma memória EEPROM (E2CMOS) para permitir a reprogramação.
+
+1.4 CPLD
+Os CPLD’s (Complex Programmable Logic Devices) são diversos dispositivos SPLD’s interligados 
+formando um sistema mais complexo. Foi uma alternativa proposta devido à dificuldade de se aumentar 
+a capacidade de arquitetura de um SPLD. Estes são interligados por interconexões programáveis 
+chamadas PIA (Programmable Interconnect Array) ou às vezes AIM (Advanced Interconnect Matrix). 
+Cada SPLD recebe o nome de LAB (Logic Array Block) e as suas entradas são conectadas diretamente 
+ao LAB e suas saídas são interconectadas a qualquer outro LAB através da PIA.
+
+1.5 SOC
+Um SoC (System-on-Chip) é um chip de silício que contem um ou mais núcleos de processadores,  memória, 
+abertura para periféricos e diversos outros tipos de possibilidades. Em geral, e um termo para 
+representar um superconjunto, pois abrange diversos tipos de chips. Por exemplo, um ASSP e um ASIC 
+são SoC’s, mas também pode se dizer o oposto sendo o ASIC e o ASSP super-tipos de SoC’s, logo uma 
+relação intrínseca entre estes existe como tipos de chips onde todo um sistema pode existir dentro.
+
+1.6 FPGA
+Os ASIC’s, ASSP’s e SoC’s embora possuem um alto desempenho e diversas vantagens
+possuem um problema, que e’ o fato de seus softwares estarem registrados no silício de suas
+placas, assim se chega ao FPGA (Field Programmable Gate Array) que e uma matriz de portas
+logicas programáveis, diferenciando-se assim dos SoC’s. FPGA’s eram relativamente simples
+e no passar do tempo evoluíram drasticamente a sua capacidade e desempenho, o que levou inclusive 
+ao cunho de um novo termo para os mais novos, sendo este SoC FPGAs. Diferenciando
+estes, o FPGA possui uma produção que leva semanas comparado aos ASIC’s que podem levar
+meses, além das ferramentas de sua produção serem mais baratas. Existem diversas vantagens
+relacionadas a eles como, por exemplo, a implementação de algoritmos de forma paralela.
+
+
+2 DIFERENCIAÇÃO ENTRE PROM, PLA E PAL
+
+2.1 PROM
+O PROM (Programmable Read Only Memory) foi o primeiro dispositivo lógico programável pelo usuário, 
+linhas de endereço servem como input e linhas de dados saem como output. Eles podem implementar 
+qualquer circuito combinacional e são geralmente utilizadas quando equações precisam de um grande 
+número de termos. Um PROM possui uma matriz AND fixa e uma matriz OR programável como um PoS 
+(Product of Sums). A sua programação é realizada através da queima de fuzis, parecido com o sistema PAL 
+(Programmable Array Logic). E importante notar que se trata de uma memória onde originalmente cada 
+célula possui os bits iguais a 1. Em geral, ao se dar um input com um endereço, o dispositivo retorna 
+uma palavra pre programada de resposta, o que os leva a serem considerados dispositivos de memória.
+
+2.2 PLA
+Um PLA (Programmable Logic Array) e um dispositivo que se difere do PROM a partir
+do momento em que tanto o array AND quanto o OR são programáveis. Um projeto PLA
+possui algumas características como deve-se minimizar as funções de saída simultaneamente,
+procurando o menor número de termos-produto comuns. São também significantemente mais
+lentas que as PROM’s e da mesma forma uma vez programados não podem ser mudados.
+
+2.3 PAL
+Já o sistema PAL (Programmable Array Logic) diferencia-se pelo array AND ser programável e o OR fixo. 
+São mais simples e baratos de fabricar, além de terem um melhor desempenho, mas da mesma forma não 
+são reprogramáveis devido à característica intrínseca de sua programação ser realizada através 
+da queima de fusíveis. Estes dispositivos foram importantes, pois tiveram profundo efeito no projeto 
+de hardware digital, e também a base para novas e mais sofisticadas arquiteturas. Tanto PLA’s e PAL’s 
+são tipos de PLD’s, os quais são agrupados por uma categoria chamada de Simple PLD’s (SPLD). 
+Entre estes, as características mais importante são o baixo custo e alto desempenho que possuem.
+
+2.4 Comparacao
+|---------------------------------------------------------|
+|       Tabela 1 – Diferença entre PROM, PLA e PAL        |
+|-----------------|----------|-----------|----------------|
+|      tipo       |   PROM   |    PLA    |       PAL      |
+|-----------------|----------|-----------|----------------|
+| Programável     |    OR    | AND/OR    | AND            |
+| Disponibilidade |    –     | difícil   | acessível      |
+| Flexibilidade   |    –     | flexível  | menos flexível |
+| Preço           |    –     | Mais caro | Mais barato    |
+| Velocidade      |    –     | Lento     | Rápido         |
+|---------------------------------------------------------|
+
+3 DIFERENCIAÇÃO ENTRE CPLD, FPGA
+
+3.1 CPLD
+Um CPLD e’ um dispositivo com complexidade entre um PAL e um FPGA e arquitetura que possui 
+característica de ambas. O CPLD possui barramentos contínuos além da implementação de sistemas 
+digitais, memoria EEPROM. São mais adequados em projetos de contagem de portas pequenas e por 
+ser uma arquitetura menos complexa, os atrasos são muito previsíveis e não é volátil. Normalmente 
+são considerados “grãos grossos” porque possuem poucas portas logicas, chegando a alguns milhares.
+
+3.2 FPGA
+Diferente do CPLD o FPGA usa barramento segmentado além de poder ser customizado
+pelo próprio cliente, sua memória é do tipo RAM que é volátil. São essencialmente mais baratos
+por portas, mas caros quando se trata do pacote. Sua produção é considerada de “grão fino”
+porque possui muitas portas logicas, chegando a casa de 100.000 pequenos blocos lógicos.
+
+3.3 Comparacao
+|----------------------------------------------------------|
+|          Tabela 2 – Diferença entre CPLD e FPGA          |
+|----------------------|------------------|----------------|
+|    característica    |       CPLD       |      FPGA      |
+|----------------------|------------------|----------------|
+| Blocos lógicos       | “Grão Grosso”    | “Grão Fino”    |
+| Numero de blocos     | poucos milhares  | até 100.000    |
+| Tamanho dos blocos   | Grandes          | Pequenos       |
+| Atrasos Previsíveis  | Previsíveis      | Imprevisíveis  |
+| Preço                | Baratos          | Caros          |
+| Tipo de memória      | EEPROM           | RAM            |
+|----------------------------------------------------------|
+
+3.4 Conclusão sobre “CPLD ou FPGA?"
+CPLD’s são melhores em projetos que possuem pequena complexidade e uma maior segurança em relação 
+ao tempo, enquanto FPGA’s são melhores para projetos mais complexos que possuem uma arquitetura 
+grande com muitos blocos lógicos. É importante dizer também sobre a disponibilidade financeira, 
+já que projetos CPLD’s são mais baratos e seguros. É bastante difícil dizer qual dos dois é melhor, 
+sendo que esta decisão cabe exclusivamente a ser tomada dependendo das especificações do projeto a 
+ser implementado, diversos fatores precisam ser analisados e muitas vezes adaptados a realidade 
+que pode restringir o projeto como a parte financeira.
+
+
+REFERÊNCIAS
+https://docplayer.com.br/3878086-O-cpld-dispositivo-complexo-de-logica-programacaoaplicado-em-automacao-industrial-resumo.html
+https://embarcados.com.br/asic-assp-soc-fpga/
+https://pt.wikipedia.org/wiki/Circuito_integrado_de_aplicação_especifica
+https://linux.ime.usp.br/~brunobra/pdf/FPGA.pdf
+http://www.fem.unicamp.br/~grace/DLP.pdf
+https://pt.wikipedia.org/wiki/System-on-a-chip
+https://www.inf.ufrgs.br/~fglima/TD/TD15.pdf
+https://fdfds.org/pt/technology/difference-between-fpga-and-cpld
+https://studytronics.weebly.com/programmable-logic-devices.html

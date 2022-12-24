@@ -1,0 +1,199 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\ICARUS~1\lib\ivl\system.vpi";
+:vpi_module "C:\ICARUS~1\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\ICARUS~1\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\ICARUS~1\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\ICARUS~1\lib\ivl\va_math.vpi";
+S_000001ebfcebb540 .scope module, "test_module" "test_module" 2 27;
+ .timescale 0 0;
+v000001ebfcf19b30_0 .net "s1", 0 0, L_000001ebfcf1c0a0;  1 drivers
+v000001ebfcf1a7b0_0 .net "s2", 0 0, L_000001ebfcf1bd20;  1 drivers
+v000001ebfcf1a850_0 .var "x", 0 0;
+v000001ebfcf1af30_0 .var "y", 0 0;
+v000001ebfcf19d10_0 .var "z", 0 0;
+S_000001ebfcebb6d0 .scope module, "FXYZ1" "fxyz" 2 32, 2 11 0, S_000001ebfcebb540;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s1";
+    .port_info 1 /INPUT 1 "x";
+    .port_info 2 /INPUT 1 "y";
+    .port_info 3 /INPUT 1 "z";
+L_000001ebfceb7840 .functor NOT 1, v000001ebfcf1a850_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfceb7140 .functor NOT 1, v000001ebfcf1af30_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1c7a0 .functor AND 1, L_000001ebfceb7840, L_000001ebfceb7140, C4<1>, C4<1>;
+L_000001ebfcf1be00 .functor AND 1, L_000001ebfcf1c7a0, v000001ebfcf19d10_0, C4<1>, C4<1>;
+L_000001ebfcf1b9a0 .functor NOT 1, v000001ebfcf1a850_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1c030 .functor AND 1, L_000001ebfcf1b9a0, v000001ebfcf1af30_0, C4<1>, C4<1>;
+L_000001ebfcf1bd90 .functor AND 1, L_000001ebfcf1c030, v000001ebfcf19d10_0, C4<1>, C4<1>;
+L_000001ebfcf1c0a0 .functor OR 1, L_000001ebfcf1be00, L_000001ebfcf1bd90, C4<0>, C4<0>;
+v000001ebfceb9dc0_0 .net *"_ivl_0", 0 0, L_000001ebfceb7840;  1 drivers
+v000001ebfceba680_0 .net *"_ivl_10", 0 0, L_000001ebfcf1c030;  1 drivers
+v000001ebfceb9fa0_0 .net *"_ivl_12", 0 0, L_000001ebfcf1bd90;  1 drivers
+v000001ebfceba040_0 .net *"_ivl_2", 0 0, L_000001ebfceb7140;  1 drivers
+v000001ebfceba220_0 .net *"_ivl_4", 0 0, L_000001ebfcf1c7a0;  1 drivers
+v000001ebfceba400_0 .net *"_ivl_6", 0 0, L_000001ebfcf1be00;  1 drivers
+v000001ebfcf1b430_0 .net *"_ivl_8", 0 0, L_000001ebfcf1b9a0;  1 drivers
+v000001ebfcf19ef0_0 .net "s1", 0 0, L_000001ebfcf1c0a0;  alias, 1 drivers
+v000001ebfcf1acb0_0 .net "x", 0 0, v000001ebfcf1a850_0;  1 drivers
+v000001ebfcf19c70_0 .net "y", 0 0, v000001ebfcf1af30_0;  1 drivers
+v000001ebfcf19f90_0 .net "z", 0 0, v000001ebfcf19d10_0;  1 drivers
+S_000001ebfcebb860 .scope module, "POS1" "PoS" 2 33, 2 15 0, S_000001ebfcebb540;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /INPUT 1 "X";
+    .port_info 2 /INPUT 1 "Y";
+    .port_info 3 /INPUT 1 "Z";
+L_000001ebfcf1c5e0 .functor OR 1, v000001ebfcf1a850_0, v000001ebfcf1af30_0, C4<0>, C4<0>;
+L_000001ebfcf1bf50 .functor OR 1, L_000001ebfcf1c5e0, v000001ebfcf19d10_0, C4<0>, C4<0>;
+L_000001ebfcf1c1f0 .functor NOT 1, v000001ebfcf1af30_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1baf0 .functor OR 1, v000001ebfcf1a850_0, L_000001ebfcf1c1f0, C4<0>, C4<0>;
+L_000001ebfcf1c3b0 .functor OR 1, L_000001ebfcf1baf0, v000001ebfcf19d10_0, C4<0>, C4<0>;
+L_000001ebfcf1be70 .functor AND 1, L_000001ebfcf1bf50, L_000001ebfcf1c3b0, C4<1>, C4<1>;
+L_000001ebfcf1bee0 .functor NOT 1, v000001ebfcf1a850_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1c6c0 .functor OR 1, L_000001ebfcf1bee0, v000001ebfcf1af30_0, C4<0>, C4<0>;
+L_000001ebfcf1ba10 .functor OR 1, L_000001ebfcf1c6c0, v000001ebfcf19d10_0, C4<0>, C4<0>;
+L_000001ebfcf1c570 .functor AND 1, L_000001ebfcf1be70, L_000001ebfcf1ba10, C4<1>, C4<1>;
+L_000001ebfcf1c650 .functor NOT 1, v000001ebfcf1a850_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1c420 .functor OR 1, L_000001ebfcf1c650, v000001ebfcf1af30_0, C4<0>, C4<0>;
+L_000001ebfcf1bfc0 .functor NOT 1, v000001ebfcf19d10_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1c500 .functor OR 1, L_000001ebfcf1c420, L_000001ebfcf1bfc0, C4<0>, C4<0>;
+L_000001ebfcf1c110 .functor AND 1, L_000001ebfcf1c570, L_000001ebfcf1c500, C4<1>, C4<1>;
+L_000001ebfcf1c2d0 .functor NOT 1, v000001ebfcf1a850_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1c490 .functor NOT 1, v000001ebfcf1af30_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1c340 .functor OR 1, L_000001ebfcf1c2d0, L_000001ebfcf1c490, C4<0>, C4<0>;
+L_000001ebfcf1c180 .functor OR 1, L_000001ebfcf1c340, v000001ebfcf19d10_0, C4<0>, C4<0>;
+L_000001ebfcf1c260 .functor AND 1, L_000001ebfcf1c110, L_000001ebfcf1c180, C4<1>, C4<1>;
+L_000001ebfcf1bbd0 .functor NOT 1, v000001ebfcf1a850_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1c730 .functor NOT 1, v000001ebfcf1af30_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1bcb0 .functor OR 1, L_000001ebfcf1bbd0, L_000001ebfcf1c730, C4<0>, C4<0>;
+L_000001ebfcf1b8c0 .functor NOT 1, v000001ebfcf19d10_0, C4<0>, C4<0>, C4<0>;
+L_000001ebfcf1b930 .functor OR 1, L_000001ebfcf1bcb0, L_000001ebfcf1b8c0, C4<0>, C4<0>;
+L_000001ebfcf1bd20 .functor AND 1, L_000001ebfcf1c260, L_000001ebfcf1b930, C4<1>, C4<1>;
+v000001ebfcf19db0_0 .net "S", 0 0, L_000001ebfcf1bd20;  alias, 1 drivers
+v000001ebfcf1a2b0_0 .net "X", 0 0, v000001ebfcf1a850_0;  alias, 1 drivers
+v000001ebfcf1b390_0 .net "Y", 0 0, v000001ebfcf1af30_0;  alias, 1 drivers
+v000001ebfcf1a710_0 .net "Z", 0 0, v000001ebfcf19d10_0;  alias, 1 drivers
+v000001ebfcf1a170_0 .net *"_ivl_0", 0 0, L_000001ebfcf1c5e0;  1 drivers
+v000001ebfcf1a530_0 .net *"_ivl_10", 0 0, L_000001ebfcf1be70;  1 drivers
+v000001ebfcf1b750_0 .net *"_ivl_12", 0 0, L_000001ebfcf1bee0;  1 drivers
+v000001ebfcf1a3f0_0 .net *"_ivl_14", 0 0, L_000001ebfcf1c6c0;  1 drivers
+v000001ebfcf1a350_0 .net *"_ivl_16", 0 0, L_000001ebfcf1ba10;  1 drivers
+v000001ebfcf1b2f0_0 .net *"_ivl_18", 0 0, L_000001ebfcf1c570;  1 drivers
+v000001ebfcf1a5d0_0 .net *"_ivl_2", 0 0, L_000001ebfcf1bf50;  1 drivers
+v000001ebfcf1b4d0_0 .net *"_ivl_20", 0 0, L_000001ebfcf1c650;  1 drivers
+v000001ebfcf1aa30_0 .net *"_ivl_22", 0 0, L_000001ebfcf1c420;  1 drivers
+v000001ebfcf1ae90_0 .net *"_ivl_24", 0 0, L_000001ebfcf1bfc0;  1 drivers
+v000001ebfcf1b570_0 .net *"_ivl_26", 0 0, L_000001ebfcf1c500;  1 drivers
+v000001ebfcf1a030_0 .net *"_ivl_28", 0 0, L_000001ebfcf1c110;  1 drivers
+v000001ebfcf1b610_0 .net *"_ivl_30", 0 0, L_000001ebfcf1c2d0;  1 drivers
+v000001ebfcf19a90_0 .net *"_ivl_32", 0 0, L_000001ebfcf1c490;  1 drivers
+v000001ebfcf198b0_0 .net *"_ivl_34", 0 0, L_000001ebfcf1c340;  1 drivers
+v000001ebfcf1a8f0_0 .net *"_ivl_36", 0 0, L_000001ebfcf1c180;  1 drivers
+v000001ebfcf1ad50_0 .net *"_ivl_38", 0 0, L_000001ebfcf1c260;  1 drivers
+v000001ebfcf1a490_0 .net *"_ivl_4", 0 0, L_000001ebfcf1c1f0;  1 drivers
+v000001ebfcf1a670_0 .net *"_ivl_40", 0 0, L_000001ebfcf1bbd0;  1 drivers
+v000001ebfcf1ac10_0 .net *"_ivl_42", 0 0, L_000001ebfcf1c730;  1 drivers
+v000001ebfcf1a0d0_0 .net *"_ivl_44", 0 0, L_000001ebfcf1bcb0;  1 drivers
+v000001ebfcf1adf0_0 .net *"_ivl_46", 0 0, L_000001ebfcf1b8c0;  1 drivers
+v000001ebfcf19950_0 .net *"_ivl_48", 0 0, L_000001ebfcf1b930;  1 drivers
+v000001ebfcf1b250_0 .net *"_ivl_6", 0 0, L_000001ebfcf1baf0;  1 drivers
+v000001ebfcf199f0_0 .net *"_ivl_8", 0 0, L_000001ebfcf1c3b0;  1 drivers
+S_000001ebfcec3ad0 .scope begin, "main" "main" 2 45, 2 45 0, S_000001ebfcebb540;
+ .timescale 0 0;
+S_000001ebfcec3c60 .scope begin, "start" "start" 2 37, 2 37 0, S_000001ebfcebb540;
+ .timescale 0 0;
+    .scope S_000001ebfcebb540;
+T_0 ;
+    %fork t_1, S_000001ebfcec3c60;
+    %jmp t_0;
+    .scope S_000001ebfcec3c60;
+t_1 ;
+    %pushi/vec4 1, 1, 1;
+    %store/vec4 v000001ebfcf1a850_0, 0, 1;
+    %pushi/vec4 1, 1, 1;
+    %store/vec4 v000001ebfcf1af30_0, 0, 1;
+    %pushi/vec4 1, 1, 1;
+    %store/vec4 v000001ebfcf19d10_0, 0, 1;
+    %end;
+    .scope S_000001ebfcebb540;
+t_0 %join;
+    %end;
+    .thread T_0;
+    .scope S_000001ebfcebb540;
+T_1 ;
+    %fork t_3, S_000001ebfcec3ad0;
+    %jmp t_2;
+    .scope S_000001ebfcec3ad0;
+t_3 ;
+    %vpi_call 2 47 "$display", "Ex07 - Marcos Antonio Lommez - 771157" {0 0 0};
+    %vpi_call 2 48 "$display", " s1 = ( ~x & ~y & z ) | (~x & y & z) " {0 0 0};
+    %vpi_call 2 51 "$display", " x | y | z ->   FXYZ  PoS" {0 0 0};
+    %vpi_call 2 52 "$monitor", "%2b |%2b |%2b =    %2b    %2b", v000001ebfcf1a850_0, v000001ebfcf1af30_0, v000001ebfcf19d10_0, v000001ebfcf19b30_0, v000001ebfcf1a7b0_0 {0 0 0};
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf1a850_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf1af30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf19d10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf1a850_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf1af30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf19d10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf1a850_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf1af30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf19d10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf1a850_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf1af30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf19d10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf1a850_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf1af30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf19d10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf1a850_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf1af30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf19d10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf1a850_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf1af30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ebfcf19d10_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf1a850_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf1af30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ebfcf19d10_0, 0, 1;
+    %end;
+    .scope S_000001ebfcebb540;
+t_2 %join;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "ex07.v";
