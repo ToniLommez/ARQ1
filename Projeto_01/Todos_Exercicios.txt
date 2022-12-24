@@ -1,0 +1,229 @@
+Marcos Antonio Lommez Candido Ribeiro - 771157
+04/12/2022
+
+
+=========================== a) NOT ===========================
+
+
+Main:	load	zero	; acc<-0
+	NOT		; acc<-!acc
+	write		; output<-acc
+
+	load	one	; acc<-1
+	NOT		; acc<-!acc
+	write		; output<-acc
+
+	stop		; stop
+
+zero:	.data 2 0 ; 2-byte location for constant zero
+one:	.data 2
+ 1 ; 2-byte location for constant one
+
+=========================== b) XOR ===========================
+
+
+Main:	load	zero	; acc<-0
+	XOR	zero	; acc<-acc^mdr
+	write		; output<-acc
+
+	load	zero 	; acc<-0
+	XOR	one	; acc<-acc^mdr
+	write		; output<-acc
+
+	load	one	; acc<-1
+	XOR	zero	; acc<-acc^mdr
+	write		; output<-acc
+
+	load	one	; acc<-1
+	XOR	one	; acc<-acc^mdr
+	write		; output<-acc
+
+	stop		; stop
+
+zero:	.data	2 0	; 2-byte location for constant zero
+one:	.data	2 1	; 2-byte location for constant one
+res:	.data	2 0	; 2-byte location where result is stored
+
+
+=========================== c) NAND ===========================
+
+
+Main:	load	zero	; acc<-0
+	NAND	zero	; acc<-acc!&mdr
+	write		; output<-acc
+
+	load	zero 	; acc<-0
+	NAND	one	; acc<-acc!&mdr
+	write		; output<-acc
+
+	load	one	; acc<-1
+	NAND	zero	; acc<-acc!&mdr
+	write		; output<-acc
+
+	load	one	; acc<-1
+	NAND	one	; acc<-acc!&mdr
+	write		; output<-acc
+
+	stop		; stop
+
+zero:	.data	2 0	; 2-byte location for constant zero
+one:	.data	2 1	; 2-byte location for constant one
+res:	.data	2 0	; 2-byte location where result is stored
+
+
+======================== d) NOR(NAND) ========================
+
+
+Main:	load	zero	; acc<-0
+	NAND	zero	; acc<-acc!&mdr
+	store	tmp	; tmp<-acc
+	load	zero	; acc<-0
+	NAND	zero	; acc<-acc!&mdr
+	NAND	tmp	; acc<-acc!&tmp
+	store	tmp	; tmp<-acc
+	NAND	tmp	; acc <-acc!&tmp
+	write		; output<-acc
+
+	load	zero	; acc<-0
+	NAND	zero	; acc<-acc!&mdr
+	store	tmp	; tmp<-acc
+	load	one	; acc<-1
+	NAND	one	; acc<-acc!&mdr
+	NAND	tmp	; acc<-acc!&tmp
+	store	tmp	; tmp<-acc
+	NAND	tmp	; acc <-acc!&tmp
+	write		; output<-acc
+
+	load	one	; acc<-1
+	NAND	one	; acc<-acc!&mdr
+	store	tmp	; tmp<-acc
+	load	zero	; acc<-0
+	NAND	zero	; acc<-acc!&mdr
+	NAND	tmp	; acc<-acc!&tmp
+	store	tmp	; tmp<-acc
+	NAND	tmp	; acc <-acc!&tmp
+	write		; output<-acc
+
+	load	one	; acc<-1
+	NAND	one	; acc<-acc!&mdr
+	store	tmp	; tmp<-acc
+	load	one	; acc<-1
+	NAND	one	; acc<-acc!&mdr
+	NAND	tmp	; acc<-acc!&tmp
+	store	tmp	; tmp<-acc
+	NAND	tmp	; acc <-acc!&tmp
+	write		; output<-acc
+
+	stop		; stop
+
+tmp:	.data	2 0	; 2-byte location for temporary variable
+zero:	.data	2 0	; 2-byte location for constant zero
+one:	.data	2 1	; 2-byte location for constant one
+
+
+====================== e) Fibonacci ======================
+
+
+Main:	load	tmp1	; acc<-tmp1
+	add	tmp2	; acc<-acc+tmp2
+	write		; output<-acc
+	store	tmp3	; salvando
+	load	tmp1	; swap tmp1->tmp2
+	store	tmp2
+	load	tmp3	; swap tmp3->tmp1
+	store	tmp1
+	load	cont	
+	add	decr 	; acc<-acc-1
+	jmpz	Done	; if i == 0, jmp to Done
+	store	cont
+	jump	Main	; Loop
+
+Done:	stop		; stop
+
+tmp1:	.data	2 0	; fibonacci 1
+tmp2:	.data	2 1	; fibonacci 2
+tmp3:	.data	2 1	; temp para transporte
+cont:	.data	2 6	; contador comecando em 6
+decr:	.data	2 -1	; numero para fazer i--
+
+
+====================== EXTRA 1: MDC ======================
+
+
+Main:	read		; Read a
+	store	tmp1	; tmp1 sera a
+	read		; Read b
+	store	tmp2	; tmp2 sera b
+	load	tmp1	; acc<-tmp1
+	sub	tmp2	; acc<-acc-tmp2
+	jmpn	Loop
+Swap:	load	tmp1	; Troca se menor estiver primeiro
+	store	tmp3
+	load	tmp2
+	store	tmp1
+	load	tmp3
+	store	tmp2
+Loop:	jmpz	Done	; while(b != 0)
+	load	tmp1	; resto = a % b
+	divide	tmp2
+	mul	tmp2
+	store	tmp3
+	load	tmp1
+	sub	tmp3
+	store	tmp3
+	load	tmp2	; a = b
+	store	tmp1
+	load	tmp3	; b = resto
+	store	tmp2
+	jump	Loop	; Loop!
+	
+Done:	load 	tmp1	; return a
+	write
+	stop		; stop
+
+tmp1:	.data	2 9	; a
+tmp2:	.data	2 4	; b
+tmp3:	.data	2 0	; resto
+
+
+================ EXTRA 2: Reconhecer Primo ================
+
+
+Main:	read		; Read a
+	store	tmp1	; tmp1 sera a
+	sub	one
+	sub	one
+	jmpn	NPrim	; x <= 1
+	load	one	; resp = true
+	store	resp
+
+For:	load	tmp1
+	sub	cont	; j < numero
+	jmpz	Done
+	load	tmp1	; if (numero % j == 0)
+	divide	cont
+	mul	cont
+	store	tmp2
+	load	tmp1
+	sub	tmp2
+	jmpz	NPrim
+
+	load	cont	; j++
+	add	one
+	store	cont
+	jump	For
+
+NPrim:	load	zero	; if (true)
+	store	resp
+
+Done:	load	resp
+	write
+	stop		; stop
+
+tmp1:	.data 2 0	; a
+tmp2:	.data 2 0	; tmp
+cont:	.data 2 2	; j
+zero:	.data 2 0	; Constante 0
+one:	.data 2 1	; Constante 1
+resp:	.data 2 1	; inicialmente true
+

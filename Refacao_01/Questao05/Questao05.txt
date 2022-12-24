@@ -1,0 +1,56 @@
+// -------------------------
+// Recuperação 01
+// Nome: Marcos Antonio Lommez Candido Ribeiro
+// Matricula: 771157
+// 31/10/2022
+// -------------------------
+
+========================== ENUNCIADO ==========================
+
+    05.) Dado o valor negativo, em complemento de 2, FACA (16)
+    a.) encontrar o positivo na base 2
+    b.) encontrar o equivalente na base 4
+    c.) encontrar o positivo na base 8
+
+=========================== LETRA A ===========================
+
+    a.) encontrar o positivo na base 2
+
+    --------- Converter Hexa em Bin ---------
+    0 = 0000 | 1 = 0001 | 2 = 0010 | 3 = 0011
+    4 = 0100 | 5 = 0101 | 6 = 0110 | 7 = 0111
+    8 = 1000 | 9 = 1001 | A = 1010 | B = 1011
+    C = 1100 | D = 1101 | E = 1110 | F = 1111
+    FACA = 1111 1010 1100 1010
+
+    Valor Binario positivo equivalente = 
+    > 0000 0101 0011 0110
+
+=========================== LETRA B ===========================
+
+    b.) encontrar o equivalente na base 4
+
+    1111 1010 1100 1010 = 11 11 10 10 11 00 10 10
+
+    ----- Converter Bin em Quat -----
+    0 = 00 | 1 = 01 | 2 = 10 | 3 = 11
+
+    11 11 10 10 11 00 10 10 = 3322 3022
+
+    Valor Quaternario equivalente = 
+    > 3322 3022
+
+=========================== LETRA C ===========================
+
+    c.) encontrar o positivo na base 8
+
+    0000 0101 0011 0110 = 0 000 010 100 110 110
+
+    ------- Converter Bin em octa -------
+    0 = 000 | 1 = 001 | 2 = 010 | 3 = 011
+    4 = 100 | 5 = 101 | 6 = 110 | 7 = 111
+
+    00 000 010 100 110 110 = 002466
+
+    Valor Octal equivalente = 
+    > 2466

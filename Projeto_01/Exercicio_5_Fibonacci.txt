@@ -1,0 +1,21 @@
+Main:	load	tmp1	; acc<-tmp1
+	add	tmp2	; acc<-acc+tmp2
+	write		; output<-acc
+	store	tmp3	; salvando
+	load	tmp1	; swap tmp1->tmp2
+	store	tmp2
+	load	tmp3	; swap tmp3->tmp1
+	store	tmp1
+	load	cont	
+	add	decr 	; acc<-acc-1
+	jmpz	Done	; if i == 0, jmp to Done
+	store	cont
+	jump	Main	; Loop
+
+Done:	stop		; stop
+
+tmp1:	.data	2 0	; fibonacci 1
+tmp2:	.data	2 1	; fibonacci 2
+tmp3:	.data	2 1	; temp para transporte
+cont:	.data	2 6	; contador comecando em 6
+decr:	.data	2 -1	; numero para fazer i--

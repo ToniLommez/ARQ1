@@ -1,0 +1,21 @@
+Main:	load	zero	; acc<-0
+	NAND	zero	; acc<-acc!&mdr
+	write		; output<-acc
+
+	load	zero 	; acc<-0
+	NAND	one	; acc<-acc!&mdr
+	write		; output<-acc
+
+	load	one	; acc<-1
+	NAND	zero	; acc<-acc!&mdr
+	write		; output<-acc
+
+	load	one	; acc<-1
+	NAND	one	; acc<-acc!&mdr
+	write		; output<-acc
+
+	stop		; stop
+
+zero:	.data	2 0	; 2-byte location for constant zero
+one:	.data	2 1	; 2-byte location for constant one
+res:	.data	2 0	; 2-byte location where result is stored

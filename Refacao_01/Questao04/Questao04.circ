@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.16.1.4.jar" version="1.0">
+  This file is intended to be loaded by Logisim http://logisim.altervista.org
+
+  <lib desc="#Wiring" name="0"/>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#TTL" name="2"/>
+  <lib desc="#Plexers" name="3">
+    <tool name="Multiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Demultiplexer">
+      <a name="enable" val="false"/>
+    </tool>
+    <tool name="Decoder">
+      <a name="enable" val="false"/>
+    </tool>
+  </lib>
+  <lib desc="#Arithmetic" name="4"/>
+  <lib desc="#Memory" name="5">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#Base" name="7">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <main name="Letra_A"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="7" map="Button2" name="Poke Tool"/>
+    <tool lib="7" map="Button3" name="Menu Tool"/>
+    <tool lib="7" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="7" name="Poke Tool"/>
+    <tool lib="7" name="Edit Tool"/>
+    <sep/>
+    <tool lib="7" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="Dialog plain 12"/>
+      <a name="color" val="#000000"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="Letra_A">
+    <a name="circuit" val="Letra_A"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(140,150)" to="(140,160)"/>
+    <wire from="(140,160)" to="(140,170)"/>
+    <wire from="(200,160)" to="(200,170)"/>
+    <wire from="(90,190)" to="(210,190)"/>
+    <wire from="(260,170)" to="(260,180)"/>
+    <wire from="(260,180)" to="(260,190)"/>
+    <wire from="(320,180)" to="(320,190)"/>
+    <wire from="(50,160)" to="(50,240)"/>
+    <wire from="(130,130)" to="(130,210)"/>
+    <wire from="(130,210)" to="(130,240)"/>
+    <wire from="(50,130)" to="(50,160)"/>
+    <wire from="(50,160)" to="(140,160)"/>
+    <wire from="(260,170)" to="(270,170)"/>
+    <wire from="(260,190)" to="(270,190)"/>
+    <wire from="(310,180)" to="(320,180)"/>
+    <wire from="(320,190)" to="(330,190)"/>
+    <wire from="(370,200)" to="(380,200)"/>
+    <wire from="(90,190)" to="(90,240)"/>
+    <wire from="(140,150)" to="(150,150)"/>
+    <wire from="(140,170)" to="(150,170)"/>
+    <wire from="(190,160)" to="(200,160)"/>
+    <wire from="(250,180)" to="(260,180)"/>
+    <wire from="(200,170)" to="(210,170)"/>
+    <wire from="(130,210)" to="(330,210)"/>
+    <wire from="(90,130)" to="(90,190)"/>
+    <comp lib="0" loc="(380,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="1" loc="(370,200)" name="NOR Gate"/>
+    <comp lib="7" loc="(130,81)" name="Text">
+      <a name="text" val="  | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 "/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="1" loc="(190,160)" name="NOR Gate"/>
+    <comp lib="7" loc="(175,44)" name="Text">
+      <a name="text" val="a.) nor ( nor ( nor ( nor (a,a),b ), nor ( nor(a,a),b) ), c )"/>
+    </comp>
+    <comp lib="0" loc="(50,130)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+    </comp>
+    <comp lib="0" loc="(130,130)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="c"/>
+    </comp>
+    <comp lib="1" loc="(310,180)" name="NOR Gate"/>
+    <comp lib="7" loc="(127,64)" name="Text">
+      <a name="text" val="m | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 "/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="0" loc="(90,130)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
+    <comp lib="1" loc="(250,180)" name="NOR Gate"/>
+  </circuit>
+  <circuit name="Letra_B">
+    <a name="circuit" val="Letra_B"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(150,140)" to="(150,150)"/>
+    <wire from="(150,250)" to="(150,260)"/>
+    <wire from="(90,260)" to="(150,260)"/>
+    <wire from="(50,150)" to="(50,220)"/>
+    <wire from="(50,220)" to="(50,290)"/>
+    <wire from="(90,120)" to="(90,190)"/>
+    <wire from="(90,190)" to="(90,260)"/>
+    <wire from="(150,150)" to="(150,160)"/>
+    <wire from="(150,260)" to="(150,270)"/>
+    <wire from="(90,190)" to="(210,190)"/>
+    <wire from="(210,180)" to="(210,190)"/>
+    <wire from="(210,150)" to="(210,160)"/>
+    <wire from="(210,220)" to="(210,230)"/>
+    <wire from="(210,250)" to="(210,260)"/>
+    <wire from="(280,170)" to="(280,190)"/>
+    <wire from="(280,210)" to="(280,240)"/>
+    <wire from="(50,150)" to="(150,150)"/>
+    <wire from="(50,120)" to="(50,150)"/>
+    <wire from="(90,260)" to="(90,290)"/>
+    <wire from="(50,220)" to="(210,220)"/>
+    <wire from="(260,240)" to="(280,240)"/>
+    <wire from="(280,210)" to="(300,210)"/>
+    <wire from="(260,170)" to="(280,170)"/>
+    <wire from="(280,190)" to="(300,190)"/>
+    <wire from="(130,120)" to="(130,290)"/>
+    <wire from="(340,200)" to="(360,200)"/>
+    <wire from="(150,140)" to="(160,140)"/>
+    <wire from="(150,160)" to="(160,160)"/>
+    <wire from="(150,270)" to="(160,270)"/>
+    <wire from="(150,250)" to="(160,250)"/>
+    <wire from="(210,180)" to="(220,180)"/>
+    <wire from="(200,150)" to="(210,150)"/>
+    <wire from="(210,160)" to="(220,160)"/>
+    <wire from="(210,250)" to="(220,250)"/>
+    <wire from="(210,230)" to="(220,230)"/>
+    <wire from="(200,260)" to="(210,260)"/>
+    <comp lib="1" loc="(200,150)" name="NAND Gate"/>
+    <comp lib="0" loc="(360,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="7" loc="(184,38)" name="Text">
+      <a name="text" val="b.) nand ( nand ( nand(a,a), b ),nand ( a,nand(b,b) ) ) "/>
+    </comp>
+    <comp lib="1" loc="(260,170)" name="NAND Gate"/>
+    <comp lib="0" loc="(50,120)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+    </comp>
+    <comp lib="7" loc="(174,57)" name="Text">
+      <a name="text" val="m | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="0" loc="(130,120)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="c"/>
+    </comp>
+    <comp lib="1" loc="(200,260)" name="NAND Gate"/>
+    <comp lib="0" loc="(90,120)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
+    <comp lib="1" loc="(260,240)" name="NAND Gate"/>
+    <comp lib="7" loc="(180,72)" name="Text">
+      <a name="text" val="  | 0 | 0 | 1 | 1 | 1 | 1 | 0 | 0 "/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="1" loc="(340,200)" name="NAND Gate"/>
+  </circuit>
+  <circuit name="Letra_C">
+    <a name="circuit" val="Letra_C"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+    <wire from="(60,120)" to="(60,190)"/>
+    <wire from="(100,230)" to="(100,300)"/>
+    <wire from="(190,180)" to="(190,190)"/>
+    <wire from="(190,240)" to="(190,250)"/>
+    <wire from="(140,270)" to="(260,270)"/>
+    <wire from="(140,250)" to="(190,250)"/>
+    <wire from="(100,150)" to="(100,230)"/>
+    <wire from="(140,170)" to="(140,250)"/>
+    <wire from="(60,190)" to="(60,210)"/>
+    <wire from="(140,250)" to="(140,270)"/>
+    <wire from="(230,200)" to="(230,220)"/>
+    <wire from="(230,160)" to="(230,180)"/>
+    <wire from="(140,170)" to="(180,170)"/>
+    <wire from="(60,210)" to="(60,300)"/>
+    <wire from="(140,270)" to="(140,300)"/>
+    <wire from="(100,120)" to="(100,150)"/>
+    <wire from="(60,210)" to="(150,210)"/>
+    <wire from="(280,190)" to="(300,190)"/>
+    <wire from="(230,200)" to="(250,200)"/>
+    <wire from="(210,220)" to="(230,220)"/>
+    <wire from="(230,180)" to="(250,180)"/>
+    <wire from="(210,160)" to="(230,160)"/>
+    <wire from="(140,120)" to="(140,170)"/>
+    <wire from="(100,150)" to="(180,150)"/>
+    <wire from="(100,230)" to="(180,230)"/>
+    <wire from="(170,210)" to="(180,210)"/>
+    <wire from="(260,210)" to="(260,270)"/>
+    <wire from="(60,190)" to="(190,190)"/>
+    <comp lib="3" loc="(210,220)" name="Multiplexer">
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(100,120)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
+    <comp lib="0" loc="(60,120)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+    </comp>
+    <comp lib="3" loc="(210,160)" name="Multiplexer">
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="1" loc="(170,210)" name="NOT Gate"/>
+    <comp lib="7" loc="(174,32)" name="Text">
+      <a name="text" val="c.) mux ( mux(b,c,a), mux(not(a),b,c), not(c) ) "/>
+    </comp>
+    <comp lib="3" loc="(280,190)" name="Multiplexer">
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="7" loc="(163,56)" name="Text">
+      <a name="text" val="m | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7"/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="7" loc="(168,74)" name="Text">
+      <a name="text" val="  | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 1 "/>
+      <a name="font" val="Dialog plain 12"/>
+    </comp>
+    <comp lib="0" loc="(300,190)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(140,120)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="c"/>
+    </comp>
+  </circuit>
+</project>

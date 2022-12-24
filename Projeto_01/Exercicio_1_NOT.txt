@@ -1,0 +1,12 @@
+Main:	load	zero	; acc<-0
+	NOT		; acc<-!acc
+	write		; output<-acc
+
+	load	one	; acc<-1
+	NOT		; acc<-!acc
+	write		; output<-acc
+
+	stop		; stop
+
+zero:	.data 2 0 ; 2-byte location for constant zero
+one:	.data 2 1 ; 2-byte location for constant one

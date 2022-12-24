@@ -1,0 +1,175 @@
+========================= EX 01 =========================
+
+01.) Implementar um programa para o processador 8085 para
+calcular o resultado da expressão aritmética abaixo,
+usando dados com 8 bits.
+dado04 = dado01 - dado02 - dado03
+
+LXI H,0050	// Endereco 1
+MOV A,M	// A = MEM
+INX H		// Point to next location
+SUB M		// A = A-MEM
+INX H		// Point to next location
+SUB M		// A = A-MEM
+STA 0100	// Guardar Resultado
+HLT		// Halt
+
+RESULTADO:
+0050  05
+0051  01
+0052  01
+0100  03
+
+========================= EX 02 =========================
+
+02.) Implementar um programa para o processador 8085 para
+calcular o resultado da expressão aritmética abaixo,
+usando dados com 16 bits (sinal+amplitude).
+Sugestão: Usar complemento de 2 para a subtração.
+dado04 = dado01 + dado02 - dado03
+
+		// Soma
+LHLD 0050	// Load to L/H register
+XCHG		// Copie to D/E register
+LHLD 0052	// Load to L/H register
+DAD D		// Add H/D L/E
+XCHG		// Copie to D/E register
+		// Complemento de 2 para subtracao
+LXI H,0054    // Load to H register
+MOV A,M	// A = MEM
+CMA		// 1 complement
+INR A		// 2 complement
+STA 0060	// Guardar Tmp
+LXI H,0055    // Load to H register
+MOV A,M	// A = MEM
+CMA		// 1 complement
+STA 0061	// Guardar Tmp
+		// Subtracao
+LHLD 0060	// Load to L/H register
+DAD D		// Add H/D L/E
+		// Fim
+SHLD 0100	// Guardar resultado
+HLT		// Halt
+
+RESULTADO:
+0050  22
+0051  22
+0052  33
+0053  33
+0054  11
+0055  11
+0060  EF
+0061  EE
+0100  44
+0101  44
+
+========================= EX 03 =========================
+
+Nao consegui fazer
+
+========================= EX 04 =========================
+
+04.) Implementar um programa para o processador 8085 para
+calcular o resultado da expressão aritmética abaixo,
+usando dados com 8 bits.
+DICA: Usar deslocamentos.
+dado03 = dado01 / 2 + dado02 * 2
+
+LXI H,0050	// Endereco 1
+MOV A,M	// A = MEM
+RAR		// Right Shift A
+STA 0060	// Guardar tmp
+INX H		// Point to next location
+MOV A,M	// A = MEM
+RAL		// Left Shift A
+LXI H,0060	// Endereco tmp
+ADD M		// A = A+MEM
+STA 0100	// Guardar Resultado
+HLT		// Halt
+
+RESULTADO:
+0050  0A
+0051  08
+0060  05
+0100  15
+
+
+========================= EX 05 =========================
+
+05.) Implementar um programa para o processador 8085 para
+calcular o resultado da expressão aritmética abaixo,
+usando dados com 8 bits.
+DICA: Para o dobro, somar o acumulador com ele mesmo.
+
+LXI H,0051	// Endereco 2
+MOV A,M	// A = MEM
+RAL		// Left Shift A
+LXI H,0050	// Endereco 1
+SUB M		// A = A-MEM
+CMA		// 1 complement
+INR A		// 2 complement
+ADD A		// A = A+A
+ADD A		// A = A+A
+STA 0100	// Guardar Resultado
+HLT		// Halt
+
+RESULTADO:
+0050  08
+0051  03
+0100  08
+
+========================= EX 06 =========================
+
+06.) Implementar um programa para o processador 8085 para
+calcular o resultado da expressão aritmética abaixo,
+usando dados com 8 bits.
+dado03 = 2 * dado01 - 3 * dado02
+
+LXI H,0050	// Endereco 1
+MOV A,M	// A = MEM
+RAL		// Left Shift A
+STA 0060	// Guardar tmp
+INX H		// Point to next location
+MOV A,M	// A = MEM
+RAL		// Left Shift A
+ADD M		// A = A+MEM
+STA 0061	// Guardar tmp
+LXI H,0060	// Endereco tmp
+MOV A,M	// A = MEM
+INX H		// Point to next location
+SUB M		// A = A-MEM
+STA 0100	// Guardar Resultado
+HLT		// Halt
+
+RESULTADO:
+0050  08
+0051  03
+0060  10
+0061  09
+0100  07
+
+========================= EX 07 =========================
+07.) Implementar um programa para o processador 8085 para
+calcular o resultado da expressão aritmética abaixo,
+usando dados com 8 bits.
+DICA: Usar deslocamentos.
+dado03 = dado01 % 2 + dado02 / 4
+
+LXI H,0050	// Endereco 1
+MOV A,M	// A = MEM
+ANI 01		// Modulo de 2
+STA 0060	// Guardar tmp
+INX H		// Point to next location
+MOV A,M	// A = MEM
+RAR		// Right Shift A
+RAR		// Right Shift A
+LXI H,0060	// Endereco 1
+ADD M		// A = A+MEM
+STA 0100	// Guardar Resultado
+HLT		// Halt
+
+RESULTADO:
+0050  03
+0051  08
+0060  01
+0100  03

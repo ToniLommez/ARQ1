@@ -1,0 +1,37 @@
+Main:	read		; Read a
+	store	tmp1	; tmp1 sera a
+	sub	one
+	sub	one
+	jmpn	NPrim	; x <= 1
+	load	one	; resp = true
+	store	resp
+
+For:	load	tmp1
+	sub	cont	; j < numero
+	jmpz	Done
+	load	tmp1	; if (numero % j == 0)
+	divide	cont
+	mul	cont
+	store	tmp2
+	load	tmp1
+	sub	tmp2
+	jmpz	NPrim
+
+	load	cont	; j++
+	add	one
+	store	cont
+	jump	For
+
+NPrim:	load	zero	; if (true)
+	store	resp
+
+Done:	load	resp
+	write
+	stop		; stop
+
+tmp1:	.data 2 0	; a
+tmp2:	.data 2 0	; tmp
+cont:	.data 2 2	; j
+zero:	.data 2 0	; Constante 0
+one:	.data 2 1	; Constante 1
+resp:	.data 2 1	; inicialmente true

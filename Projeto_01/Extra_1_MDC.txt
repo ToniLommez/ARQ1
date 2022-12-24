@@ -1,0 +1,34 @@
+Main:	read		; Read a
+	store	tmp1	; tmp1 sera a
+	read		; Read b
+	store	tmp2	; tmp2 sera b
+	load	tmp1	; acc<-tmp1
+	sub	tmp2	; acc<-acc-tmp2
+	jmpn	Loop
+Swap:	load	tmp1	; Troca se menor estiver primeiro
+	store	tmp3
+	load	tmp2
+	store	tmp1
+	load	tmp3
+	store	tmp2
+Loop:	jmpz	Done	; while(b != 0)
+	load	tmp1	; resto = a % b
+	divide	tmp2
+	mul	tmp2
+	store	tmp3
+	load	tmp1
+	sub	tmp3
+	store	tmp3
+	load	tmp2	; a = b
+	store	tmp1
+	load	tmp3	; b = resto
+	store	tmp2
+	jump	Loop	; Loop!
+	
+Done:	load 	tmp1	; return a
+	write
+	stop		; stop
+
+tmp1:	.data	2 9	; a
+tmp2:	.data	2 4	; b
+tmp3:	.data	2 0	; resto
