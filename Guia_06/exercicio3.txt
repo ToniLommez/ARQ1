@@ -1,0 +1,112 @@
+03.) Se o número de variáveis aumentar, o mapa deve ser modificado ligeiramente,
+a fim de que as vizinhanças mantenham apenas uma diferença entre elas.
+
+                    E      E      F      F
+                    w'     w'     w      w
+           xy/wz    00  |  01  |  11  |  10  
+   A   x'   00   |  0   |  1   |  3   |  2   | y'  D
+   A   x'   01   |  4   |  5   |  7   |  6   | y   C
+       ------------------------------------------
+   B   x    11   |  12  |  13  |  15  |  14  | y   C
+   B   x    10   |  8   |  9   |  11  |  10  | y'  D
+                 |  z'  |  z   |  z   |  z'  
+                    H      G      G      H
+
+Construir os mapas de Veitch-Karnaugh e simplificar as funções lógicas abaixo
+e verificar pelas respectivas tabelas-verdades implementadas em Verilog e/ou Logisim:
+
+a) f (x,y,w,z) = Σ m ( 1, 2, 5, 9, 10, 11 )
+                    E      E      F      F
+                    w'     w'     w      w
+           xy/wz    00  |  01  |  11  |  10  
+   A   x'   00   |      |  1   |      |  1   | y'  D
+   A   x'   01   |      |  1   |      |      | y   C
+       ------------------------------------------
+   B   x    11   |      |      |      |      | y   C
+   B   x    10   |      |  1   |  1   |  1   | y'  D
+                 |  z'  |  z   |  z   |  z'  
+                    H      G      G      H
+(1,5)  = (x'.y'.w'.z ) + (x'.y .w'.z ) = x'.w'.z 
+(9,11) = (x .y'.w'.z ) + (x .y'.w .z ) = x .y'.z 
+(2,10) = (x'.y'.w .z') + (x .y'.w .z') = y'.w .z'
+Σm()   = (x'.w'.z ) + (x .y'.z ) + (y'.w .z')
+
+
+-------------------------------------------------
+b) f (x,y,w,z) = Σ m ( 0, 1, 3, 5, 8, 9, 13 )
+                    E      E      F      F
+                    w'     w'     w      w
+           xy/wz    00  |  01  |  11  |  10  
+   A   x'   00   |  1   |  1   |  1   |      | y'  D
+   A   x'   01   |      |  1   |      |      | y   C
+       ------------------------------------------
+   B   x    11   |      |  1   |      |      | y   C
+   B   x    10   |  1   |  1   |      |      | y'  D
+                 |  z'  |  z   |  z   |  z'  
+                    H      G      G      H
+(0,8)  = (x'.y'.w'.z') + (x .y'.w'.z') = y'.w'.z'
+(1,5)  = (x'.y'.w'.z ) + (x'.y .w'.z ) = x'.w'.z 
+(1,3)  = (x'.y'.w'.z ) + (x'.y'.w .z ) = x'.y'.z 
+(9,13) = (x .y'.w'.z ) + (x .y .w'.z ) = x .w'.z 
+Σm()   = (y'.w'.z') + (x'.w'.z ) + (x'.y'.z ) + (x .w'.z )
+
+
+-------------------------------------------------
+c) f (x,y,w,z) = Σ m ( 0, 1, 2, 5, 7, 8, 13, 15 )
+                    E      E      F      F
+                    w'     w'     w      w
+           xy/wz    00  |  01  |  11  |  10  
+   A   x'   00   |  1   |  1   |      |  1   | y'  D
+   A   x'   01   |      |  1   |  1   |      | y   C
+       ------------------------------------------
+   B   x    11   |      |  1   |  1   |      | y   C
+   B   x    10   |  1   |      |      |      | y'  D
+                 |  z'  |  z   |  z   |  z'  
+                    H      G      G      H
+(0,1)   = (x'.y'.w'.z') + (x'.y'.w'.z ) = x'.y'.w'
+(0,2)   = (x'.y'.w'.z') + (x'.y'.w .z') = x'.y'.z'
+(0,8)   = (x'.y'.w'.z') + (x .y'.w'.z') = y'.w'.z'
+(5,7)   = (x'.y .w'.z ) + (x'.y .w .z ) = x'.y .z 
+(13,15) = (x .y .w'.z ) + (x .y .w .z ) = x .y .z 
+Σm()    = (x'.y'.w') + (x'.y'.z') + (y'.w'.z') + (x'.y .z ) + (x .y .z )
+
+
+-------------------------------------------------
+d) f (x,y,w,z) = Σ m ( 2, 4, 5, 6, 10, 12, 14 )
+                    E      E      F      F
+                    w'     w'     w      w
+           xy/wz    00  |  01  |  11  |  10  
+   A   x'   00   |      |      |      |  1   | y'  D
+   A   x'   01   |  1   |  1   |      |  1   | y   C
+       ------------------------------------------
+   B   x    11   |  1   |      |      |  1   | y   C
+   B   x    10   |      |      |      |  1   | y'  D
+                 |  z'  |  z   |  z   |  z'  
+                    H      G      G      H
+(2,6)   = (x'.y'.w .z') + (x'.y .w .z') = x'.w .z'
+(4,5)   = (x'.y .w'.z') + (x'.y .w'.z ) = x'.y .w'
+(4,12)  = (x'.y .w'.z') + (x .y .w'.z') = y .w'.z'
+(10,14) = (x .y'.w .z') + (x .y .w .z') = x .w .z'
+Σm()    = (x'.w .z') + (x'.y .w') + (y .w'.z') + (x .w .z')
+
+
+-------------------------------------------------
+e) f (x,y,w,z) = Σ m ( 0, 1, 2, 7, 8, 9, 12, 15 )
+                    E      E      F      F
+                    w'     w'     w      w
+           xy/wz    00  |  01  |  11  |  10  
+   A   x'   00   |  1   |  1   |      |  1   | y'  D
+   A   x'   01   |      |      |  1   |      | y   C
+       ------------------------------------------
+   B   x    11   |  1   |      |  1   |      | y   C
+   B   x    10   |  1   |  1   |      |      | y'  D
+                 |  z'  |  z   |  z   |  z'  
+                    H      G      G      H
+(0,1)  = (x'.y'.w'.z') + (x'.y'.w'.z ) = x'.y'.w'
+(0,2)  = (x'.y'.w'.z') + (x'.y'.w .z') = x'.y'.z'
+(8,9)  = (x .y'.w'.z') + (x .y'.w'.z ) = x .y'.w'
+(8,12) = (x .y'.w'.z') + (x .y .w'.z') = x .w'.z'
+(7,15) = (x'.y .w .z ) + (x .y .w .z ) = y .w .z 
+Σm()   = (x'.y'.w') + (x'.y'.z') + (x .y'.w') + (x .w'.z') + (y .w .z )
+
+

@@ -1,0 +1,32 @@
+05.) Identificar a equação característica do circuito lógicos abaixo e
+simplifica-la pelo mapa de Veitch-Karnaugh usando mintermos.
+Descrever e simular o circuito simplificado em Verilog e Logisim.
+
+|---------||-----------||-------------||---------||
+|    m    || x   y   z ||  mintermos  ||   SoP   ||
+|---------||-----------||-------------||---------||
+|    0    || 0   0   0 ||   x'.y'.z'  ||    0    ||
+|    1    || 0   0   1 ||   x'.y'.z   ||    0    ||
+|    2    || 0   1   0 ||   x'.y .z'  ||    0    ||
+|    3    || 0   1   1 ||   x'.y .z   ||    0    ||
+|    4    || 1   0   0 ||   x .y'.z'  ||    1    ||
+|    5    || 1   0   1 ||   x .y'.z   ||    1    ||
+|    6    || 1   1   0 ||   x .y .z'  ||    1    ||
+|    7    || 1   1   1 ||   x .y .z   ||    0    ||
+|---------||-----------||-------------||---------||
+
+                      E
+                   z'    z
+           xy/z    0     1
+   A   x'   00  |     |     |  y'  D
+       x'   01  |     |     |  y   C
+       ------------------------
+       x    11  |  1  |     |  y   C
+   B   x    10  |  1  |  1  |  y'  D
+
+
+
+(4,5) = (x .y'.z') + (x .y'.z ) = x .y'
+(4,6) = (x .y'.z') + (x .y .z') = x .z'
+
+Σ m ( 4, 5, 6 ) = (x .y') + (x .z')

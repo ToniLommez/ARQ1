@@ -1,0 +1,109 @@
+04.) O mapa de Veitch-Karnaugh também serve para simplificar produtos de somas (MAXTERMOS):
+
+                    E      E      F      F
+                    W'     W'     W      W
+           XY/WZ    00  |  01  |  11  |  10  
+   A   X'   00   |  0   |  1   |  3   |  2   | Y'  D
+   A   X'   01   |  4   |  5   |  7   |  6   | Y   C
+       ------------------------------------------
+   B   X    11   |  12  |  13  |  15  |  14  | Y   C
+   B   X    10   |  8   |  9   |  11  |  10  | Y'  D
+                 |  Z'  |  Z   |  Z   |  Z'  
+                    H      G      G      H
+
+Construir os mapas de Veitch-Karnaugh e simplificar as funções lógicas abaiXo por MAXTERMOS
+e verificar pelas respectivas tabelas-verdades implementadas em Verilog e/ou Logisim:
+
+
+a) F (X,Y,W,Z) = π M ( 2, 6, 7, 13 )
+                    E      E      F      F
+                    W      W      W'     W'
+           XY/WZ    00  |  01  |  11  |  10  
+   A   X    00   |      |      |      |  1   | Y   D
+   A   X    01   |      |      |  1   |  1   | Y'  C
+       ------------------------------------------
+   B   X'   11   |      |  1   |      |      | Y'  C
+   B   X'   10   |      |      |      |      | Y   D
+                 |  Z   |  Z'  |  Z'  |  Z   
+                    H      G      G      H
+(2,6) = (X +Y +W'+Z ) . (X +Y'+W'+Z ) = X +W'+Z 
+(6,7) = (X +Y'+W'+Z ) . (X +Y'+W'+Z') = X +Y'+W'
+(13)  = (X'+Y'+W +Z')
+πm()  = (X +W'+Z ) . (X +Y'+W') . (X'+Y'+W +Z')
+
+
+-------------------------------------------------
+b) F (X,Y,W,Z) = π M ( 4, 8, 9, 11, 15 )
+                    E      E      F      F
+                    W      W      W'     W'
+           XY/WZ    00  |  01  |  11  |  10  
+   A   X    00   |      |      |      |      | Y   D
+   A   X    01   |  1   |      |      |      | Y'  C
+       ------------------------------------------
+   B   X'   11   |      |      |  1   |      | Y'  C
+   B   X'   10   |  1   |  1   |  1   |      | Y   D
+                 |  Z   |  Z'  |  Z'  |  Z   
+                    H      G      G      H
+(4)     = (X +Y'+W +Z )
+(8,9)   = (X'+Y +W +Z ) . (X'+Y +W +Z') = X'+Y +W 
+(11,15) = (X'+Y +W'+Z') . (X'+Y'+W'+Z') = X'+W'+Z'
+πm()    = (X +Y'+W +Z ) . (X'+Y +W ) . (X'+W'+Z')
+
+
+-------------------------------------------------
+c) F (X,Y,W,Z) = π M ( 4, 8, 10, 13, 14 )
+                    E      E      F      F
+                    W      W      W'     W'
+           XY/WZ    00  |  01  |  11  |  10  
+   A   X    00   |      |      |      |      | Y   D
+   A   X    01   |  1   |      |      |      | Y'  C
+       ------------------------------------------
+   B   X'   11   |      |  1   |      |  1   | Y'  C
+   B   X'   10   |  1   |      |      |  1   | Y   D
+                 |  Z   |  Z'  |  Z'  |  Z   
+                    H      G      G      H
+(4)     = (X +Y'+W +Z )
+(8)     = (X'+Y +W +Z )
+(13)    = (X'+Y'+W +Z')
+(10,14) = (X'+Y +W'+Z ) . (X'+Y'+W'+Z ) = X'+W'+Z 
+πm()    = (X +Y'+W +Z ) . (X'+Y +W +Z ) . (X'+Y'+W +Z') . (X'+W'+Z )
+
+
+-------------------------------------------------
+d) F (X,Y,W,Z) = π M ( 1, 2, 5, 13, 14, 15 )
+                    E      E      F      F
+                    W      W      W'     W'
+           XY/WZ    00  |  01  |  11  |  10  
+   A   X    00   |      |  1   |      |  1   | Y   D
+   A   X    01   |      |  1   |      |      | Y'  C
+       ------------------------------------------
+   B   X'   11   |      |  1   |  1   |  1   | Y'  C
+   B   X'   10   |      |      |      |      | Y   D
+                 |  Z   |  Z'  |  Z'  |  Z   
+                    H      G      G      H
+(2)     = (X +Y +W'+Z )
+(1,5)   = (X +Y +W +Z') . (X +Y'+W +Z') = X +W +Z'
+(5,13)  = (X +Y'+W +Z') . (X'+Y'+W +Z') = Y'+W +Z'
+(14,15) = (X'+Y'+W'+Z ) . (X'+Y'+W'+Z') = X'+Y'+W'
+πm()    = (X +Y +W'+Z ) . (X +W +Z') . (Y'+W +Z') . (X'+Y'+W')
+
+
+-------------------------------------------------
+e) F (X,Y,W,Z) = π M ( 3, 5, 6, 7, 11, 15 )
+                    E      E      F      F
+                    W      W      W'     W'
+           XY/WZ    00  |  01  |  11  |  10  
+   A   X    00   |      |      |  1   |      | Y   D
+   A   X    01   |      |  1   |  1   |  1   | Y'  C
+       ------------------------------------------
+   B   X'   11   |      |      |  1   |      | Y'  C
+   B   X'   10   |      |      |  1   |      | Y   D
+                 |  Z   |  Z'  |  Z'  |  Z   
+                    H      G      G      H
+(3,7)   = (X +Y +W'+Z') . (X +Y'+W'+Z') = X +W'+Z'
+(5,7)   = (X +Y'+W +Z') . (X +Y'+W'+Z') = X +Y'+Z'
+(6,7)   = (X +Y'+W'+Z ) . (X +Y'+W'+Z') = X +Y'+W'
+(11,15) = (X'+Y +W'+Z') . (X'+Y'+W'+Z') = X'+W'+Z'
+πm()    = (X +W'+Z') . (X +Y'+Z') . (X +Y'+W') . (X'+W'+Z')
+
+
